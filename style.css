@@ -83,6 +83,9 @@ nav {
     display: inline-block;
     float: right; }
 
+#all-transactions {
+  display: none; }
+
 #all-transactions,
 #add_expense {
   width: 79%;

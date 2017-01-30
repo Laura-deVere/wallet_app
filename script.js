@@ -10,35 +10,35 @@ var UIController = (function() {
 	};
 
 	var navBar = function(el) {
-		var el, divs, visibleDiv;
+		var el, divs, visibleDivId;
 
 		el = el;
 		divs = [DOMStrings.allTransacDiv, DOMStrings.addExpDiv];
-		visibleDiv = null;
+		visibleDivId = null;
 
-		function toggleVisibility(divClass) {
-			if(visibleDiv === divClass) {
+		function toggleVisibility(el) {
+			if(visibleDivId === el) {
 			} else {
-				visibleDiv = divClass;
+				visibleDivId = el;
 			}
 				hideNonVisibleDivs();
 		}
 
 		function hideNonVisibleDivs() {
 			
-			var i, divClass, div;
+			var i, divId, div;
 			for(i = 0; i < divs.length; i++) {
-				divClass = divs[i];
+				el = divs[i];
 				div = document.getElementById(el);
 				console.log(div);
-				if(visibleDiv === divClass) {
+				if(visibleDivId === el) {
 					div.style.display = "block";
 				} else {
 					div.style.display = "none";
 				}
 			}
 		}
-		toggleVisibility();
+		toggleVisibility(el);
 	}
 
 	return {
@@ -62,22 +62,20 @@ var controller = (function(budgetCtrl, UICtrl) {
 	var setupEventListners = function() {
 		var DOM = UICtrl.getDOMStrings();
 
-		// document.querySelector(DOM.navAllTransac).addEventListener('click', function(event) {
-		// 	UICtrl.getNavBar(DOM.navAllTransac);
-		// });
-
 		var otherEl = document.getElementById(DOM.navAddExpense)
 	
 		var el = document.getElementById(DOM.navAllTransac);
 
-			el.addEventListener("click", handleClick(el), false);
+			el.onclick = handleTransacClick;
+			otherEl.onclick = handleExpClick;
 			
-			function handleClick(el) {
+			function handleExpClick(el) {
+				UICtrl.getNavBar(DOM.addExpDiv);
+			}
+
+			function handleTransacClick(otherEl) {
 				UICtrl.getNavBar(DOM.allTransacDiv);
 			}
-			// otherEl.addEventListener("click", 
-			// UICtrl.getNavBar(DOM.addExpDiv));
-		
 	}
 
 	return {
