@@ -165,6 +165,10 @@ nav {
 	}
 }
 
+.expense-category::first-letter {
+	text-transform: uppercase;
+}
+
 .income-amount,
 .expense-amount {
 	margin-right: 20px;
@@ -172,7 +176,7 @@ nav {
 
 #add_expense {
 	height: 88vh;
-	form {
+	&>div {
 		margin: 26px auto 0 auto;
     width: 90%;
 		label, input {
@@ -234,8 +238,8 @@ nav {
 }
 
 .categories {
-	width: 380px;
-	height: 100%;
+	width: 380px !important;
+	height: 100% !important;
 	// margin: 0 auto 26px auto;
 	margin: 0 auto;
 	padding: 0;
@@ -245,6 +249,7 @@ nav {
 			// border: thin solid $dark;
 			width: 125px;
 			min-height: 125px;
+			cursor: pointer;
 	}
 	&>div:first-child, 
 	&>div:nth-child(3)

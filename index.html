@@ -54,51 +54,51 @@
 							<span class="income-amount">+ 900.000</span>
 						</div>
 					</li>
-					<li>
+					<!-- <li>
 						<i class="ion-ios-telephone-outline"></i>
 						<div>
 							<span class="expense-description">Phone</span>
 							<span class="expense-amount">- 65.64</span>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 			<div id="add_expense">
 				<p class="backgr-red">ADD EXPENSE</p>
-				<form class="centered-column">
+				<div id="exp-form" class="centered-column">
 					<label>How much did you spend?</label>
-						<input placeholder="$0.00">
+						<input id="exp-value" placeholder="$0.00">
 					<label>Add comment</label>
-						<input placeholder="Type your comment here...">
+						<input id="exp-comment" placeholder="Type your comment here...">
 					<label>What did you spend on? Select category.</label>	
 						<div class="categories">
-							<div class="centered-column">
+							<div class="centered-column" id="cat-groceries" onclick="UIController.getItemDescription('cat-groceries')">
 								<i class="ion-ios-cart-outline"></i>
 								<span>Groceries</span>
 							</div>
-							<div class="centered-column">
+							<div class="centered-column" id="cat-clothing" onclick="UIController.getItemDescription('cat-clothing')">
 								<i class="ion-tshirt-outline"></i>
 								<span>Clothing</span>
 							</div>
-							<div class="centered-column">
+							<div class="centered-column" id="cat-eating-out" onclick="UIController.getItemDescription('cat-eating-out')">
 								<i class="ion-android-restaurant"></i>
 								<span>Eating out</span>
 							</div>
-							<div class="centered-column">
+							<div class="centered-column" id="cat-entertainment"  onclick="UIController.getItemDescription('cat-entertainment')">
 								<i class="ion-ios-film"></i>
 								<span>Entertainment</span>
 							</div>
-							<div class="centered-column">
+							<div class="centered-column" id="cat-phone" onclick="UIController.getItemDescription('cat-phone')">
 								<i class="ion-ios-telephone-outline"></i>
 								<span>Phone</span>
 							</div>
-							<div class="centered-column">
+							<div class="centered-column" id="cat-other" onclick="UIController.getItemDescription('cat-other')">
 								<i class="ion-ios-plus-empty"></i>
 								<span>Add Category</span>
 							</div>
 						</div>
-						<button class="backgr-red">ADD EXPENSE</button>
-				</form>
+						<button id="add-exp-btn" class="backgr-red">ADD EXPENSE</button>
+				</div>
 			</div>
 		</div>
 		<script src="script.js"></script>
