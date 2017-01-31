@@ -83,7 +83,7 @@ nav {
     display: inline-block;
     float: right; }
 
-#all-transactions,
+#add_expense,
 #add_income {
   display: none; }
 
@@ -110,29 +110,35 @@ nav {
   color: #160507;
   width: 100%;
   padding: 0; }
-  .transactions-list li {
-    height: 60px;
-    width: 100%;
-    font-size: 24px; }
-    .transactions-list li > div {
-      border-bottom: thin solid #E1D5D1;
-      width: 90%;
-      float: right;
-      padding-bottom: 15px;
-      font-size: 16px;
-      display: flex;
-      justify-content: space-between; }
-    .transactions-list li i {
-      text-align: center;
-      margin-left: 38px;
-      width: 20px;
-      height: 100%; }
 
-.expense-category::first-letter {
+.balance-container,
+.transactions-list li {
+  height: 60px;
+  width: 96%;
+  font-size: 24px; }
+  .balance-container > div,
+  .transactions-list li > div {
+    border-bottom: thin solid #E1D5D1;
+    width: 90%;
+    float: right;
+    padding-bottom: 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between; }
+  .balance-container i,
+  .transactions-list li i {
+    text-align: center;
+    margin-left: 38px;
+    width: 20px;
+    height: 100%; }
+
+.expense-category::first-letter,
+.income-category::first-letter {
   text-transform: uppercase; }
 
 .income-amount,
-.expense-amount {
+.expense-amount,
+.balance {
   margin-right: 20px; }
 
 #add_expense,

@@ -18,7 +18,12 @@
 				<div class="total-income backgr-org centered-row">
 					<i class="ion-ios-plus-outline"></i>
 					<div>Total Income
-						<span><i class="ion-social-usd-outline dollar-icon"></i>2,000.32</span>
+						<div class="centered-row">
+							<i class="ion-social-usd-outline dollar-icon"></i>
+							<span id="total-inc">
+								0.00
+							</span>
+						</div>
 					</div> 
 				</div>
 				<div class="total-exp backgr-red centered-row">
@@ -35,11 +40,11 @@
 				<div class="side-nav-list-container">
 					<ul class="side-nav-list centered-column">
 						<li id="nav-add-exp">
-							<i class="ion-cash"></i>
+							<i class="ion-ios-plus-empty"></i>
 							<span>Add Expense</span>
 						</li>
 						<li id="nav-add-inc">
-							<i class="ion-cash"></i>
+							<i class="ion-ios-minus-empty"></i>
 							<span>Add Income</span>
 						</li>
 						<li id="nav-all-transac">
@@ -56,14 +61,14 @@
 			<div id="all-transactions">
 				<p class="backgr-red">All TRANSACTIONS</p>
 				<ul class="transactions-list">
-					<li>
+					<!-- <li>
 						<i class="im im-banknote"></i>
 						<div>
 							<span class="income-description">Salary</span>
 							<span class="income-amount">+ 900.000</span>
 						</div>
 					</li>
-					<!-- <li>
+					<li>
 						<i class="ion-ios-telephone-outline"></i>
 						<div>
 							<span class="expense-description">Phone</span>
@@ -71,6 +76,13 @@
 						</div>
 					</li> -->
 				</ul>
+				<div class="balance-container">
+					<i class="ion-social-usd-outline"></i>
+					<div>
+						<span>Balance: </span>
+						<span class="balance-label">0.00</span>
+					</div>
+				</div>
 			</div>
 			<div id="add_expense">
 				<p class="backgr-red">ADD EXPENSE</p>
@@ -126,7 +138,7 @@
 								<i class="ion-ios-home-outline"></i>
 								<span>Housing</span>
 							</div>
-							<div class="centered-column" id="cat-other" onclick="UIController.getItemDescription('cat-other')">
+							<div class="centered-column" id="cat-other-inc" onclick="UIController.getItemDescription('cat-other-inc')">
 								<i class="ion-ios-plus-empty"></i>
 								<span>Other</span>
 							</div>
