@@ -113,7 +113,8 @@ nav {
 	}
 }
 
-#all-transactions {
+#all-transactions,
+#add_income {
 	display: none;
 }
 
@@ -122,7 +123,8 @@ nav {
 }
 
 #all-transactions,
-#add_expense {
+#add_expense,
+#add_income {
 	width: 79%;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -174,7 +176,8 @@ nav {
 	margin-right: 20px;
 }
 
-#add_expense {
+#add_expense,
+#add_income {
 	height: 88vh;
 	&>div {
 		margin: 26px auto 0 auto;

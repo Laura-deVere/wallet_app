@@ -4,22 +4,25 @@ var UIController = (function() {
 	var DOMStrings = {
 		navAddExpense: 'nav-add-exp',
 		navAllTransac: 'nav-all-transac',
+		navAddIncome: 'nav-add-inc',
 		// navBudgetRep: '.nav-budget-rep',
 		allTransacDiv: 'all-transactions',
 		addExpDiv: 'add_expense',
+		addIncDiv: 'add_income',
 		expValue: 'exp-value',
 		expComment: 'exp-comment',
 		expForm: 'exp-form',
 		expBtn: 'add-exp-btn',
 		allTransacList: '.transactions-list',
-		expCategoryList:'.categories'
+		expCategoryList:'.categories',
+		totalExpLabel: 'total-exp'
 	};
 
 	var navBar = function(el) {
 		var el, divs, visibleDivId;
 
 		el = el;
-		divs = [DOMStrings.allTransacDiv, DOMStrings.addExpDiv];
+		divs = [DOMStrings.allTransacDiv, DOMStrings.addExpDiv, DOMStrings.addIncDiv];
 		visibleDivId = null;
 
 		function toggleVisibility() {
@@ -87,8 +90,15 @@ var UIController = (function() {
 			return el;
 		},
 
+		displayBudget: function(obj) {
+			console.log(obj);
+			document.getElementById(DOMStrings.totalExpLabel).textContent = obj.totalExp;
+		},
+
 		clearFields: function() {
-			var fields, fieldsArr;
+			var fields, fieldsArr, category;
+
+			category = document.querySelector('.select-category');
 
 			fields = [document.getElementById(DOMStrings.expValue), document.getElementById(DOMStrings.expComment)];
 
@@ -97,6 +107,9 @@ var UIController = (function() {
 			fieldsArr.forEach(function(curr, index, array) {
 				curr.value = "";
 			});
+
+			category.classList.remove('backgr-red');
+			category.classList.remove('select-category');
 
 			fieldsArr[0].focus();
 		},
@@ -144,7 +157,25 @@ var budgetController = (function() {
 		}
 	}
 
+	calculateTotals = function(type) {
+		var sum = 0;
+		data.allItems[type].forEach(function(curr) {
+			sum += curr.value;
+		});
+		data.total[type] = sum;
+	}
+
 	return {
+		calculateBudget: function() {
+			calculateTotals('exp');
+		},
+
+		getBudget: function() {
+			return {
+				totalExp: data.total.exp
+			};
+		},
+
 		addItem: function(type, value, comment, category) {
 			var newItem, ID;
 
@@ -178,19 +209,26 @@ var controller = (function(budgetCtrl, UICtrl) {
 		var DOM, form, category; 
 		DOM = UICtrl.getDOMStrings();
 
-		var otherEl = document.getElementById(DOM.navAddExpense)
+		var exp = document.getElementById(DOM.navAddExpense)
 	
-		var el = document.getElementById(DOM.navAllTransac);
+		var transactions = document.getElementById(DOM.navAllTransac);
 
-			el.onclick = handleTransacClick;
-			otherEl.onclick = handleExpClick;
+		var inc = document.getElementById(DOM.navAddIncome);
 			
-			function handleExpClick(el) {
+			transactions.onclick = handleTransacClick;
+			exp.onclick = handleExpClick;
+			inc.onclick = handleIncClick;
+			
+			function handleExpClick(exp) {
 				UICtrl.getNavBar(DOM.addExpDiv);
 			}
 
-			function handleTransacClick(otherEl) {
+			function handleTransacClick(transactions) {
 				UICtrl.getNavBar(DOM.allTransacDiv);
+			}
+
+			function handleIncClick(inc) {
+				UICtrl.getNavBar(DOM.addIncDiv);
 			}
 
 		//Submit add expense
@@ -201,6 +239,15 @@ var controller = (function(budgetCtrl, UICtrl) {
 		// 		ctrlAddItem();
 		// 	}
 		// });
+	}
+
+	var updateBudget = function() {
+		// calculate budget
+		budgetCtrl.calculateBudget();
+		// return budget
+		var budget = budgetCtrl.getBudget();
+		//update the UI
+		UICtrl.displayBudget(budget);
 	}
 
 	var ctrlAddItem = function() {
@@ -217,6 +264,8 @@ var controller = (function(budgetCtrl, UICtrl) {
 		UICtrl.clearFields();
 		//Add item to the UI
 		UICtrl.addListItem(newItem, 'exp');
+		//now update budget
+		updateBudget();
 	}
 
 	return {

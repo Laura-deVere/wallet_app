@@ -83,16 +83,19 @@ nav {
     display: inline-block;
     float: right; }
 
-#all-transactions {
+#all-transactions,
+#add_income {
   display: none; }
 
 #all-transactions,
-#add_expense {
+#add_expense,
+#add_income {
   width: 79%;
   overflow-x: hidden;
   overflow-y: scroll; }
   #all-transactions p,
-  #add_expense p {
+  #add_expense p,
+  #add_income p {
     width: 100%;
     height: 29px;
     text-align: center;
@@ -132,18 +135,24 @@ nav {
 .expense-amount {
   margin-right: 20px; }
 
-#add_expense {
+#add_expense,
+#add_income {
   height: 88vh; }
-  #add_expense > div {
+  #add_expense > div,
+  #add_income > div {
     margin: 26px auto 0 auto;
     width: 90%; }
-    #add_expense > div label, #add_expense > div input {
+    #add_expense > div label, #add_expense > div input,
+    #add_income > div label,
+    #add_income > div input {
       height: 35px; }
-    #add_expense > div label {
+    #add_expense > div label,
+    #add_income > div label {
       width: 100%;
       color: #E23949;
       font-size: 14px; }
-    #add_expense > div input {
+    #add_expense > div input,
+    #add_income > div input {
       width: 100%;
       color: #E1D5D1;
       border-bottom: 2px solid #E1D5D1;
@@ -153,25 +162,32 @@ nav {
       padding-left: 4px;
       font-size: 24px;
       margin-bottom: 10px; }
-    #add_expense > div input::first-letter {
+    #add_expense > div input::first-letter,
+    #add_income > div input::first-letter {
       text-transform: uppercase; }
-    #add_expense > div input::-webkit-input-placeholder {
+    #add_expense > div input::-webkit-input-placeholder,
+    #add_income > div input::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #E1D5D1; }
-    #add_expense > div input::-moz-placeholder {
+    #add_expense > div input::-moz-placeholder,
+    #add_income > div input::-moz-placeholder {
       /* Firefox 19+ */
       color: #E1D5D1; }
-    #add_expense > div input:-ms-input-placeholder {
+    #add_expense > div input:-ms-input-placeholder,
+    #add_income > div input:-ms-input-placeholder {
       /* IE 10+ */
       color: #E1D5D1; }
-    #add_expense > div input:-moz-placeholder {
+    #add_expense > div input:-moz-placeholder,
+    #add_income > div input:-moz-placeholder {
       /* Firefox 18- */
       color: #E1D5D1; }
-    #add_expense > div input:focus {
+    #add_expense > div input:focus,
+    #add_income > div input:focus {
       outline: none !important;
       border: 1px solid #E23949;
       box-shadow: 0 0 10px #719ECE; }
-    #add_expense > div button {
+    #add_expense > div button,
+    #add_income > div button {
       color: #fff;
       border: 1px solid #E23949;
       height: 55px;
@@ -179,9 +195,11 @@ nav {
       margin-bottom: 26px;
       cursor: pointer;
       font-size: 20px; }
-    #add_expense > div button:focus {
+    #add_expense > div button:focus,
+    #add_income > div button:focus {
       outline: none; }
-    #add_expense > div input:nth-child(2) {
+    #add_expense > div input:nth-child(2),
+    #add_income > div input:nth-child(2) {
       text-align: right;
       padding-right: 10px; }
 

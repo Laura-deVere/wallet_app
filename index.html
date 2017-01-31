@@ -24,7 +24,12 @@
 				<div class="total-exp backgr-red centered-row">
 					<i class="ion-ios-minus-outline"></i> 
 					<div>Total Expense
-						<span><i class="ion-social-usd-outline dollar-icon"></i>954.36</span>
+						<div class="centered-row">
+							<i class="ion-social-usd-outline dollar-icon"></i>
+							<span id="total-exp">
+								0.00
+							</span>
+						</div>
 					</div>
 				</div>
 				<div class="side-nav-list-container">
@@ -32,6 +37,10 @@
 						<li id="nav-add-exp">
 							<i class="ion-cash"></i>
 							<span>Add Expense</span>
+						</li>
+						<li id="nav-add-inc">
+							<i class="ion-cash"></i>
+							<span>Add Income</span>
 						</li>
 						<li id="nav-all-transac">
 							<i class="ion-card"></i>
@@ -94,13 +103,37 @@
 							</div>
 							<div class="centered-column" id="cat-other" onclick="UIController.getItemDescription('cat-other')">
 								<i class="ion-ios-plus-empty"></i>
-								<span>Add Category</span>
+								<span>Other</span>
 							</div>
 						</div>
 						<button id="add-exp-btn" class="backgr-red">ADD EXPENSE</button>
 				</div>
 			</div>
-		</div>
+			<div id="add_income">
+				<p class="backgr-red">ADD INCOME</p>
+				<div id="inc-form" class="centered-column">
+					<label>How much did you earn?</label>
+						<input id="inc-value" placeholder="$0.00">
+					<label>Add comment</label>
+						<input id="inc-comment" placeholder="Type your comment here...">
+					<label>How did you earn this income? Select category.</label>	
+						<div class="categories">
+							<div class="centered-column" id="cat-salary" onclick="UIController.getItemDescription('cat-salary')">
+								<i class="ion-social-usd-outline"></i>
+								<span>Salary</span>
+							</div>
+							<div class="centered-column" id="cat-housing" onclick="UIController.getItemDescription('cat-housing')">
+								<i class="ion-ios-home-outline"></i>
+								<span>Housing</span>
+							</div>
+							<div class="centered-column" id="cat-other" onclick="UIController.getItemDescription('cat-other')">
+								<i class="ion-ios-plus-empty"></i>
+								<span>Other</span>
+							</div>
+						</div>
+						<button id="add-inc-btn" class="backgr-red">ADD INCOME</button>
+				</div>
+			</div>	
 		<script src="script.js"></script>
 	</body>
 </html>
