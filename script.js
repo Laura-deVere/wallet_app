@@ -20,7 +20,8 @@ var UIController = (function() {
 		expCategoryList:'.categories',
 		totalExpLabel: 'total-exp',
 		totalIncLabel: 'total-inc',
-		balanceLabel: '.balance-label'
+		balanceLabel: '.balance-label',
+		showComment: '.show-comment'
 	};
 
 	var navBar = function(el) {
@@ -58,10 +59,16 @@ var UIController = (function() {
 	function parseCatString(string) {
 		var string;
 
+		string = string.slice(4);
 		string = string.replace(/-/g , " ");
-		string = string.slice(3);
 		
 		return string;
+	}
+
+	function letterToUpperCase(string) {
+		var string;
+		
+		return string = string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
 	return {
@@ -72,14 +79,17 @@ var UIController = (function() {
 			
 			if(type === 'exp') {
 				element = DOMStrings.allTransacList;
-				html = '<li id="exp-%id%"><i class="ion-ios-telephone-outline"></i><div><span class="expense-category">%description%</span><span class="expense-amount">- %value%</span></div></li>'
+				html = '<li id="exp-%id%"><div><i class="ion-ios-minus-empty"><span class="expense-category"> %description%</span></i><span class="expense-amount">- %value%</span></div><div class="comment-box"><span class="show-comment" onclick="UIController.showHideComment(\'comment-%id%\'\)">(show comment)</span><p id="comment-%id%" class="comment">%comment%</p></div></li>'
 			} else if (type === 'inc') {
 				element = DOMStrings.allTransacList;
-				html = '<li id="inc-%id%"><i class="im im-banknote"></i><div><span class="income-category">%description%</span><span class="income-amount">+ %value%</span></div></li>'
+				html = '<li id="inc-%id%"><div><i class="ion-ios-plus-empty"><span class="income-category"> %description%</span></i><span class="income-amount">+ %value%</span></div><div class="comment-box"><span class="show-comment" onclick="UIController.showHideComment(\'comment-%id%\'\)">(show comment)</span><p id="comment-%id%" class="comment">%comment%</p></div></li>'
 			}
+			
+			category = letterToUpperCase(category);
 			//Replace the place holder with new text
-			newHtml = html.replace('%id%', obj.id);
-			newHtml = newHtml.replace('%description%', category);
+			newHtml = html.replace(/%id%/g, obj.id);
+			newHtml = newHtml.replace('%comment%', obj.comment);
+			newHtml = newHtml.replace('%description%',category);
 			newHtml = newHtml.replace('%value%', obj.value);
 
 			// NOw insert new text into the DOM
@@ -146,6 +156,12 @@ var UIController = (function() {
 			
 		},
 
+		showHideComment: function(id) {
+			var el;
+			el = document.getElementById(id);
+			el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+		},
+
 		getNavBar: function(el) {
 			return navBar(el);
 		},
@@ -201,7 +217,7 @@ var budgetController = (function() {
 			calculateTotals('inc');
 
 			data.balance = data.total.inc - data.total.exp;
-			console.log(data.balance);
+			// console.log(data.balance);
 		},
 
 		getBudget: function() {
@@ -244,7 +260,7 @@ var budgetController = (function() {
 var controller = (function(budgetCtrl, UICtrl) {
 	
 	var setupEventListners = function() {
-		var DOM, form, category; 
+		var DOM; 
 		DOM = UICtrl.getDOMStrings();
 
 		////////NAV CLICKS
@@ -302,7 +318,7 @@ var controller = (function(budgetCtrl, UICtrl) {
 		
 		if (input.comment !== "" && !isNaN(input.value) && input.value > 0) {
 			newItem = budgetCtrl.addItem(type, input.value, input.comment, input.category);
-			console.log(newItem);
+			// console.log(newItem);
 		}
 
 		//Clear input fields
@@ -315,7 +331,6 @@ var controller = (function(budgetCtrl, UICtrl) {
 
 	return {
 		init: function() {
-			console.log('I control stuff');
 			setupEventListners();
 		}
 	};
