@@ -61,7 +61,7 @@
 			<div id="all-transactions">
 				<p class="backgr-red">All TRANSACTIONS</p>
 				<ul class="transactions-list">
-					<li>
+					<!-- <li>
 						<div>
 							<i class="ion-ios-plus-empty">
 								<span class="income-description">Salary</span>
@@ -84,7 +84,7 @@
 							<span>(show comment)</span>
 							<p class="comment">This is where the comment will be.</p>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 				<div class="balance-container">
 					<div>
@@ -111,7 +111,7 @@
 								<i class="ion-tshirt-outline"></i>
 								<span>Clothing</span>
 							</div>
-							<div class="centered-column" id="cat-eating-out" onclick="UIController.getItemDescription('cat-eating-out')">
+							<div class="centered-column" id="cat-eating" onclick="UIController.getItemDescription('cat-eating')">
 								<i class="ion-android-restaurant"></i>
 								<span>Eating out</span>
 							</div>
@@ -155,6 +155,59 @@
 						</div>
 						<button id="add-inc-btn" class="backgr-red">ADD INCOME</button>
 				</div>
+			</div>
+			<div id="budget-report">
+				<p class="backgr-red">Budget Report</p>
+				<ul class="budget-list">
+					<li>
+						<span>Balance</span>
+						<i>$</i>
+						<span class="balance-label">
+							0.00
+						</span>
+					</li>
+					<li>
+						<i class="ion-ios-minus-empty"></i>
+							<span>EXP</span>
+							<span id="total-exp">
+								0.00
+							</span>
+					</li>
+					<li>
+						<i class="ion-ios-plus-empty"></i>
+							<span>INC</span>
+							<span id="total-inc">
+								0.00
+							</span>
+					</li>
+				</ul>
+				<h2>Spending</h2>
+				<ul class="spending-list">
+					<li>
+						<span>Groceries</span>
+						<span id="grocery-percent">0%</span>
+					</li>
+					<li>
+						<span>Clothing</span>
+						<span id="clothing-percent">0%</span>
+					</li>
+					<li>
+						<span>Eating out</span>
+						<span id="eating-percent">0%</span>
+					</li>
+					<li>
+						<span>Entertainment</span>
+						<span id="entertainment-percent">0%</span>
+					</li>
+					<li>
+						<span>Phone</span>
+						<span id="phone-percent">%</span>
+					</li>
+					<li>
+						<span>Other</span>
+						<span id="other-percent">0%</span>
+					</li>
+				</ul>
 			</div>	
 		<script src="script.js"></script>
 	</body>

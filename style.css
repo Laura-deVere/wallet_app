@@ -83,19 +83,25 @@ nav {
     display: inline-block;
     float: right; }
 
-#add_expense,
+#budget-report,
 #add_income {
   display: none; }
 
+#all-transactions {
+  display: none;
+  cursor: all-scroll; }
+
 #all-transactions,
 #add_expense,
-#add_income {
+#add_income,
+#budget-report {
   width: 79%;
   overflow-x: hidden;
   overflow-y: scroll; }
   #all-transactions p,
   #add_expense p,
-  #add_income p {
+  #add_income p,
+  #budget-report p {
     width: 100%;
     height: 29px;
     text-align: center;
@@ -132,6 +138,28 @@ nav {
     text-align: center;
     margin-left: 20px;
     height: 100%; }
+
+#budget-report ul {
+  list-style: none;
+  width: 90%;
+  margin: 20px auto 0 auto;
+  padding: 0; }
+#budget-report h2 {
+  color: #E23949;
+  text-decoration: underline;
+  margin-left: 48px;
+  font-size: 16px; }
+
+.budget-list {
+  display: flex;
+  justify-content: space-between; }
+
+.spending-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid thin #E1D5D1;
+  padding: 7.5px 0 7.5px 0;
+  font-size: 16px; }
 
 .expense-category::first-letter,
 .income-category::first-letter {
