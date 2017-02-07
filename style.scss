@@ -197,9 +197,14 @@ nav {
 	li {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		border-bottom: solid thin $light;
 		padding: 7.5px 0 7.5px 0;
     font-size: 16px;
+    height: 35px;
+	}
+	span {
+		width: 100px;
 	}
 }
 
@@ -343,6 +348,25 @@ nav {
 		font-size: 14px;
 		color: $dark;
 	}
+}
+
+/////// PROGRESS BAR
+
+.progress-container {
+    width: 60%;
+    height: 1.5em;
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+.progressbar {
+	width: 50%;
+	background: $red; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, $red, $orange); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, $red, $orange); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	height: 100%;
+	position: absolute;
+	line-height: inherit;
 }
 
 

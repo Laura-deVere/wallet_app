@@ -95,6 +95,11 @@ var UIController = (function() {
 		return int + '.' + dec;
 	}
 
+	function updateProgressBar(id, percent) {
+		document.getElementById('progressbar-' + id).style.width =  percent + '%';
+		// console.log([id, percent]);
+	}
+
 	return {
 		addListItem: function(obj, type) {
 			var html, newHtml, element, category;
@@ -155,6 +160,7 @@ var UIController = (function() {
 			// This loops over the indices of the first array, and uses that to index into the others.
 			for (i = 0; i < outPut.length; i += 1) {
 				document.getElementById(IDArr[i]).textContent = percentArr[i] + '%';
+				updateProgressBar(IDArr[i], percentArr[i]);
 			}
 		},
 

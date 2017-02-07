@@ -3,6 +3,8 @@
 	<head>
 		<title>WALLET APP</title>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.iconmonstr.com/1.1.0/css/iconmonstr-iconic-font.min.css">
@@ -185,26 +187,44 @@
 				<ul class="spending-list">
 					<li>
 						<span>Groceries</span>
+						<div class="progress-container">
+  						<div id="progressbar-grocery-percent" class="progressbar" style="width:0%"></div>
+						</div>
 						<span id="grocery-percent">0%</span>
 					</li>
 					<li>
 						<span>Clothing</span>
+						<div class="progress-container">
+  						<div id="progressbar-clothing-percent" class="progressbar" style="width:0%"></div>
+						</div>
 						<span id="clothing-percent">0%</span>
 					</li>
 					<li>
 						<span>Eating out</span>
+						<div class="progress-container">
+  						<div id="progressbar-eating-percent" class="progressbar" style="width:0%"></div>
+						</div>
 						<span id="eating-percent">0%</span>
 					</li>
 					<li>
 						<span>Entertainment</span>
+						<div class="progress-container">
+  						<div id="progressbar-entertainment-percent" class="progressbar" style="width:50%"></div>
+						</div>
 						<span id="entertainment-percent">0%</span>
 					</li>
 					<li>
 						<span>Phone</span>
+						<div class="progress-container">
+  						<div id="progressbar-phone-percent" class="progressbar" style="width:50%"></div>
+						</div>
 						<span id="phone-percent">%</span>
 					</li>
 					<li>
 						<span>Other</span>
+						<div class="progress-container">
+  						<div id="progressbar-other-percent" class="progressbar" style="width:50%"></div>
+						</div>
 						<span id="other-percent">0%</span>
 					</li>
 				</ul>
