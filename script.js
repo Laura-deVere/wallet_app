@@ -19,8 +19,8 @@ var UIController = (function() {
 		incBtn: 'add-inc-btn',
 		allTransacList: '.transactions-list',
 		expCategoryList:'.categories',
-		totalExpLabel: 'total-exp',
-		totalIncLabel: 'total-inc',
+		totalExpLabel: '.total-exp-label',
+		totalIncLabel: '.total-inc',
 		balanceLabel: '.balance-label',
 		showComment: '.show-comment',
 		grocPerc: 'grocery-percent',
@@ -96,8 +96,19 @@ var UIController = (function() {
 	}
 
 	function updateProgressBar(id, percent) {
-		document.getElementById('progressbar-' + id).style.width =  percent + '%';
-		// console.log([id, percent]);
+		if (percent > 100) {
+			percent = 100;
+		} else {
+			percent = percent;
+		}
+		document.getElementById('progressbar-' + id).style.width = percent + '%';
+	}
+
+	function nodeListForEach(list, num) {
+		var i = 0;
+			for (i = 0; i < list.length; i++) {
+				list[i].textContent = formatNumber(num);
+			}
 	}
 
 	return {
@@ -136,15 +147,24 @@ var UIController = (function() {
 			return el;
 		},
 
-		displayBudget: function(obj) {			
-			document.getElementById(DOMStrings.totalIncLabel).textContent = formatNumber(obj.totalInc);
-			document.getElementById(DOMStrings.totalExpLabel).textContent = formatNumber(obj.totalExp);
-			// console.log(obj.balance);
-			// console.log(obj.totalInc);
+		displayBudget: function(obj) {	
+			var balance, income, expense;	
+
+			income = document.body.querySelectorAll(DOMStrings.totalIncLabel);
+			
+			nodeListForEach(income, obj.totalInc);
+			// .textContent = formatNumber(obj.totalInc);
+
+			expense = document.body.querySelectorAll(DOMStrings.totalExpLabel);
+			// document.getElementById(DOMStrings.totalExpLabel).textContent = formatNumber(obj.totalExp);
+			nodeListForEach(expense, obj.totalExp);
+			
+			balance = document.body.querySelectorAll(DOMStrings.balanceLabel);
+			
 			if (obj.balance > 0 ) {
-				document.querySelector(DOMStrings.balanceLabel).textContent = formatNumber(obj.balance);
+				nodeListForEach(balance, obj.balance);	
 			} else {
-				document.querySelector(DOMStrings.balanceLabel).textContent = 0.00;
+				nodeListForEach(balance, 0.00);
 			}
 		},
 

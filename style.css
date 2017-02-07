@@ -83,7 +83,7 @@ nav {
     display: inline-block;
     float: right; }
 
-#budget-report,
+#add_expense,
 #add_income {
   display: none; }
 
