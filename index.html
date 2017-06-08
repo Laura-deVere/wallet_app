@@ -5,18 +5,20 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/small-device.css">
 		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.iconmonstr.com/1.1.0/css/iconmonstr-iconic-font.min.css">
 		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="centered-row">
+			<i class="ion-navicon" id="nav-hidden"></i>
 			<i class="ion-bag"></i>
-			<span>WALLET APP</span>
+			<!-- <span>WALLET APP</span> -->
 		</nav>
 		<div class="body-content">
-			<div class="side-bar centered-column">
+			<div class="side-bar" id="mobile-nav">
 				<div class="total-income backgr-org centered-row">
 					<i class="ion-ios-plus-outline"></i>
 					<div>Total Income
@@ -61,7 +63,9 @@
 				</div>
 			</div>
 			<div id="all-transactions">
-				<p class="backgr-red">All TRANSACTIONS</p>
+				<div class="backgr-red header">
+					<p>All TRANSACTIONS</p>
+				</div>
 				<ul class="transactions-list">
 					<!-- <li>
 						<div>
@@ -97,7 +101,9 @@
 				</div>
 			</div>
 			<div id="add_expense">
-				<p class="backgr-red">ADD EXPENSE</p>
+				<div class="backgr-red header">
+					<p>ADD EXPENSE</p>
+				</div>
 				<div id="exp-form" class="centered-column">
 					<label>How much did you spend?</label>
 						<input id="exp-value" placeholder="$0.00">
@@ -134,13 +140,15 @@
 				</div>
 			</div>
 			<div id="add_income">
-				<p class="backgr-red">ADD INCOME</p>
+				<div class="backgr-red header">
+					<p>ADD INCOME</p>
+				</div>
 				<div id="inc-form" class="centered-column">
 					<label>How much did you earn?</label>
 						<input id="inc-value" placeholder="$0.00">
 					<label>Add comment</label>
 						<input id="inc-comment" placeholder="Type your comment here...">
-					<label>How did you earn this income? Select category.</label>	
+					<label>How did you earn this income? </label>	
 						<div class="categories">
 							<div class="centered-column" id="cat-salary" onclick="UIController.getItemDescription('cat-salary')">
 								<i class="ion-social-usd-outline"></i>
@@ -159,10 +167,12 @@
 				</div>
 			</div>
 			<div id="budget-report">
-				<p class="backgr-red">Budget Report</p>
+				<div class="backgr-red header">
+					<p>BUDGET REPORT</p>
+				</div>
 				<ul class="budget-list">
 					<li>
-						<span>Balance</span>
+						<!-- <span>Balance</span> -->
 						<i>$</i>
 						<span class="balance-label">
 							0.00
@@ -229,6 +239,6 @@
 					</li>
 				</ul>
 			</div>	
-		<script src="script.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>

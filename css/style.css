@@ -27,10 +27,13 @@ nav {
   background-color: #FCAA3A;
   color: #fff;
   font-size: 25px;
-  justify-content: initial !important; }
+  justify-content: flex-end !important; }
   nav i {
-    width: 50%;
+    width: 10%;
     text-align: center; }
+
+#nav-hidden {
+  display: none; }
 
 .body-content {
   display: flex; }
@@ -62,13 +65,15 @@ nav {
   font-size: 10px !important; }
 
 .side-nav-list-container {
-  width: 100%; }
+  width: 100%;
+  background-color: #fff; }
 
 .side-nav-list {
   list-style: none;
   color: #160507;
   width: 100%;
-  padding: 0;
+  margin-top: 0;
+  padding: 16px 0 0 0;
   overflow: hidden; }
   .side-nav-list li {
     height: 60px;
@@ -82,6 +87,10 @@ nav {
     padding-bottom: 15px;
     display: inline-block;
     float: right; }
+
+.header {
+  width: 100% !important;
+  margin-top: 0 !important; }
 
 #add_expense,
 #add_income {
@@ -128,7 +137,7 @@ nav {
   .transactions-list li > div {
     border-bottom: thin solid #E1D5D1;
     width: 90%;
-    float: right;
+    margin: 0 auto;
     padding: 7.5px 0 7.5px 0;
     font-size: 16px;
     display: flex;
@@ -164,6 +173,8 @@ nav {
   height: 35px; }
 .spending-list span {
   width: 100px; }
+.spending-list span:last-child {
+  text-align: right; }
 
 .expense-category::first-letter,
 .income-category::first-letter {
@@ -310,5 +321,65 @@ nav {
   height: 100%;
   position: absolute;
   line-height: inherit; }
+
+@media screen and (min-width: 320px) and (max-width: 736px) {
+  nav {
+    justify-content: space-between !important; }
+    nav i {
+      width: 20%; }
+
+  #nav-hidden {
+    display: block;
+    cursor: pointer; }
+
+  .side-bar {
+    z-index: 1;
+    width: 100%;
+    height: 0;
+    position: absolute; }
+
+  .total-exp, .total-income {
+    justify-content: center; }
+    .total-exp div, .total-income div {
+      font-size: 23px;
+      width: 200px; }
+
+  .dollar-icon {
+    font-size: 18px !important; }
+
+  #all-transactions,
+  #add_expense,
+  #add_income,
+  #budget-report {
+    width: 100%; }
+
+  #add_expense div input, #add_income div input {
+    font-size: 21px; }
+
+  .categories div {
+    width: 32%;
+    min-height: 116px; }
+
+  #add_expense button,
+  #add_income button {
+    width: 100%; }
+
+  #budget-report ul {
+    margin: 20px auto; }
+
+  #budget-report h2 {
+    margin: 5px auto 0 auto;
+    width: 100px;
+    font-size: 14px; }
+
+  .spending-list li,
+  .budget-list li {
+    font-size: 12px; }
+
+  .progress-container {
+    width: 33%; }
+
+  .spending-list span {
+    width: 71px; } }
 
 /*# sourceMappingURL=style.css.map */

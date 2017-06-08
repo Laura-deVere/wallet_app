@@ -1,0 +1,83 @@
+@media screen and (min-width: 320px) and (max-width: 568px) {
+  body {
+    max-height: 568px;
+    overflow: scroll; }
+
+  .total-income, .total-exp {
+    height: 120px; }
+    .total-income div, .total-exp div {
+      width: 174px; }
+
+  .total-income i, .total-exp i {
+    font-size: 30px; }
+
+  .total-exp div, .total-income div, .total-income span, .total-exp span {
+    font-size: 18px; }
+
+  .side-nav-list li {
+    height: 55px; }
+
+  #all-transactions p, #add_expense p, #add_income p, #budget-report p {
+    height: 13px;
+    padding: 24px 2px;
+    font-size: 13px; }
+
+  #budget-report ul {
+    width: 95%;
+    margin: 22px auto; }
+
+  #budget-report h2 {
+    margin: 0 auto;
+    font-size: 12px; }
+
+  .spending-list li {
+    height: 30px; }
+
+  .balance-container > div, .transactions-list li > div {
+    font-size: 12px;
+    padding: 5.5px 0; }
+
+  #add_expense, #add_income {
+    height: 490px; }
+
+  #add_expense > div, #add_income > div {
+    margin: 13px auto 0 auto; }
+
+  #add_expense > div label, #add_income > div label {
+    font-size: 12px;
+    height: 14px; }
+
+  #add_expense div input, #add_income div input {
+    font-size: 11px; }
+
+  #add_expense > div label, #add_expense > div input, #add_income > div label, #add_income > div input {
+    height: 31px; }
+
+  .categories {
+    position: relative; }
+    .categories div {
+      width: 25%;
+      min-height: 81px; }
+    .categories span {
+      font-size: 11px; }
+
+  .categories i {
+    font-size: 37px; }
+
+  #add_expense > div button, #add_income > div button {
+    width: 100%;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0; } }
+@media screen and (max-width: 568px) and (min-width: 568px) {
+  #add_expense > div button, #add_income > div button {
+    bottom: -249px; }
+
+  .categories {
+    width: 289px !important; }
+    .categories div {
+      width: 95px;
+      min-height: 87px; } }
+
+/*# sourceMappingURL=small-device.css.map */

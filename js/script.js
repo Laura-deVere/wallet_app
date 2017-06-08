@@ -6,6 +6,8 @@ var UIController = (function() {
 		navAllTransac: 'nav-all-transac',
 		navAddIncome: 'nav-add-inc',
 		navBudgetRep: 'nav-budget-rep',
+		navMobile: 'nav-hidden',
+		mobileNavDiv: 'mobile-nav',
 		budgetRepDiv: 'budget-report',
 		allTransacDiv: 'all-transactions',
 		addExpDiv: 'add_expense',
@@ -33,6 +35,14 @@ var UIController = (function() {
 
 	var navBar = function(el) {
 		var el, divs, visibleDivId;
+
+		if ( window.innerWidth > 739) {      
+			  console.log('over 736')
+				} 
+				else {
+				  var navDiv = document.getElementById(DOMStrings.mobileNavDiv);
+				  navDiv.style.display = (navDiv.style.display === 'none') ? 'block' : 'none';
+				}
 
 		el = el;
 		divs = [DOMStrings.allTransacDiv, DOMStrings.addExpDiv, DOMStrings.addIncDiv, DOMStrings.budgetRepDiv];
@@ -227,9 +237,18 @@ var UIController = (function() {
 		},
 
 		showHideComment: function(id) {
-			var el;
+			var el, nextEl;
+
 			el = document.getElementById(id);
+
 			el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+				console.log(el);
+
+			if(id === DOMStrings.mobileNavDiv) {
+				console.log(el);
+				nextEl = document.getElementById(DOMStrings.budgetRepDiv);
+				nextEl.style.display = (nextEl.style.display === 'none') ? 'block' : 'none';
+			}
 		},
 
 		getNavBar: function(el) {
@@ -427,13 +446,16 @@ var budgetController = (function() {
 ////////////////////////////////////////// APP CONTROLLER //////////////////////////////////////////
 
 var controller = (function(budgetCtrl, UICtrl) {
-	
+
 	var setupEventListners = function() {
 		var DOM; 
 		DOM = UICtrl.getDOMStrings();
 
 		////////NAV CLICKS
-		var exp = document.getElementById(DOM.navAddExpense)
+		var nav = document.getElementById(DOM.navMobile);
+		var navDiv = document.getElementById(DOM.mobileNavDiv);
+
+		var exp = document.getElementById(DOM.navAddExpense);
 	
 		var transactions = document.getElementById(DOM.navAllTransac);
 
@@ -441,11 +463,16 @@ var controller = (function(budgetCtrl, UICtrl) {
 
 		var budget = document.getElementById(DOM.navBudgetRep);
 			
+			nav.onclick = handleMenuClick;
 			transactions.onclick = handleTransacClick;
 			exp.onclick = handleExpClick;
 			inc.onclick = handleIncClick;
 			budget.onclick = handleBudgetClick;
 			
+			function handleMenuClick(el) {
+				navDiv.style.display = (navDiv.style.display === 'none') ? 'block' : 'none';
+			}
+
 			function handleExpClick(exp) {
 				UICtrl.getNavBar(DOM.addExpDiv);
 			}
