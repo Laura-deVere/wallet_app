@@ -374,12 +374,23 @@ nav {
 
   .spending-list li,
   .budget-list li {
-    font-size: 12px; }
+    font-size: 14px; }
+
+  .budget-list li:last-child {
+    text-align: right; }
+  .budget-list li:nth-child(2) {
+    text-align: center; }
 
   .progress-container {
     width: 33%; }
 
   .spending-list span {
-    width: 71px; } }
+    width: 71px; }
+
+  .balance-container, .transactions-list li {
+    width: 100%; }
+
+  .income-amount, .expense-amount, .balance-label {
+    margin-right: 0; } }
 
 /*# sourceMappingURL=style.css.map */
