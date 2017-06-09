@@ -61,15 +61,7 @@
       font-size: 11px; }
 
   .categories i {
-    font-size: 37px; }
-
-  #add_expense > div button, #add_income > div button {
-    width: 100%;
-    font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 0; } }
+    font-size: 37px; } }
 @media screen and (max-width: 568px) and (min-width: 568px) {
   #add_expense > div button, #add_income > div button {
     bottom: -249px; }

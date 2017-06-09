@@ -19,6 +19,15 @@ var UIController = (function() {
 		expForm: 'exp-form',
 		expBtn: 'add-exp-btn',
 		incBtn: 'add-inc-btn',
+		catGrocery: 'cat-groceries',
+		catClothing: 'cat-clothing',
+		catEating: 'cat-eating',
+		catEnter: 'cat-entertainment',
+		catPhone: 'cat-phone',
+		catOther: 'cat-other',
+		catSalary: 'cat-salary',
+		catHousing: 'cat-housing',
+		catOtherInc: 'cat-other-inc',
 		allTransacList: '.transactions-list',
 		expCategoryList:'.categories',
 		totalExpLabel: '.total-exp-label',
@@ -30,7 +39,7 @@ var UIController = (function() {
 		eatPerc: 'eating-percent',
 		enterPerc: 'entertainment-percent',
 		phonePerc: 'phone-percent',
-		otherPrec: 'other-percent'
+		otherPrec: 'other-percent',
 	};
 
 	var navBar = function(el) {
@@ -121,6 +130,29 @@ var UIController = (function() {
 			}
 	}
 
+	function removeCategory(el) {
+		var clothing = document.getElementById(DOMStrings.catClothing);
+		var groceries = document.getElementById(DOMStrings.catGrocery);
+		var eat = document.getElementById(DOMStrings.catEating);
+		var entertainment = document.getElementById(DOMStrings.catEnter);
+		var phone = document.getElementById(DOMStrings.catPhone);
+		var other = document.getElementById(DOMStrings.catOther);
+		var catSalary = document.getElementById(DOMStrings.catSalary);
+		var catHousing = document.getElementById(DOMStrings.catHousing);
+		var catOtherInc = document.getElementById(DOMStrings.catOtherInc);
+		
+		var elArr = [clothing, groceries, eat, entertainment, phone, other, catSalary, catHousing, catOtherInc];
+
+		elArr.forEach(function(curr) {
+			if(curr.id != el) {
+				curr.classList.remove('backgr-red');
+				curr.classList.remove('select-category');
+			}
+		});
+
+		return el;
+	}
+
 	return {
 		addListItem: function(obj, type) {
 			var html, newHtml, element, category;
@@ -149,9 +181,11 @@ var UIController = (function() {
 
 		getItemDescription: function(el) {
 			var el;
-
-			el = document.getElementById(el);
 			
+			el = document.getElementById(el);
+
+			removeCategory(el);
+
 			el.classList.toggle('backgr-red');
 			el.classList.toggle('select-category');
 			return el;
