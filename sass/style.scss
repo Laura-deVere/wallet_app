@@ -428,6 +428,7 @@ nav {
     }
 
     #add_expense, #add_income {
+    	height: 100%;
     	div {
     		input {
     			font-size: 21px;
@@ -441,13 +442,15 @@ nav {
   		min-height: 116px;
   	}
   }
-
-  #add_expense,
-	#add_income {
-		button {
-			width: 100%;
-		}
-	}
+ 
+  #add_expense > div button, #add_income > div button {
+  		width: 100%;
+  		font-size: 14px;
+  		position: absolute;
+    	bottom: 0;
+      left: 0;
+    	margin-bottom: 0;
+  }
 
   #budget-report ul { 
   	margin: 20px auto;
